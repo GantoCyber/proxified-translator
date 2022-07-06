@@ -116,14 +116,15 @@ Then you may start an interactive shell from the Docker image for translating:
 
 ### Option #1. Install with Bash
 
-Download [the self-contained executable](http://git.io/trans) and place it into your path. It's everything you need.
-
-    $ wget git.io/trans
-    $ chmod +x ./trans
-
-There is a [GPG signature](https://www.soimort.org/translate-shell/trans.sig).
+    $ git clone https://github.com/GantoCyber/translate-shell
+    $ cd translate-shell/
+    $ bash ptranslator-install.sh
 
 ### Option #2. Install with Python
+
+    $ git clone https://github.com/GantoCyber/translate-shell
+    $ cd translate-shell/
+    $ python ptranslator-install.py
 
 #### Using your favorite package manager
 
@@ -135,12 +136,45 @@ Add the following line to your `.zshrc`:
 
     antigen bundle soimort/translate-shell
 
-### Option #3. Manual Installation
+### Option #3. Manually (with sudo permissions)
 
-    $ git clone https://github.com/soimort/translate-shell
-    $ cd translate-shell/
-    $ make
-    $ [sudo] make install
+# Ensure system is up to date and upgrade it
+apt-get update -y && apt-get upgrade -y
+
+# Install Git
+apt-get install git -y
+
+# Install Proxified-Translator and dependencies
+git clone https://github.com/ganto/translate-shell && cd proxified-translator/ && make && make install && cd
+
+# Install TOR
+apt-get install tor -y
+
+# Install Proxychains 
+apt-get install proxychains -y && apt-get install libproxychains4 -y
+
+# Install JQ
+apt-get install jq -y
+
+# Make sure the file is set up correctly
+cp -f  /translate-shell/proxychains4.conf > /etc/proxychains4.conf
+
+# See if your country allows you to access to the TOR network
+cd translate-shell/ && cat countries.txt && sleep 1m
+
+# Open the port used by the TOR network
+iptables -I INPUT -p tcp -m tcp --dport 9050 -j ACCEPT
+
+# Start TOR (if you can access to this network)
+# Show the use of the TOR proxy port
+# If TOR is active (if the "tor.service" is active ; it's working).
+service tor start && netstat -tlpn | grep :9050 && service tor status 
+
+# Test to know if the traffic goes through TOR network : Compare the first result to the second result, the first result is your personal public IP, the second is the TOR exit node IP address
+curl -s ipinfo.io | jq ".ip, .country" && proxychains curl -s ipinfo.io | jq ".ip, .country"
+
+# Automatise the start and stop of TOR ==> Every 10 minutes, your entire data path will change, allowing you to override IP restriction
+crontab -e */10 * * * * /home/translate-shell/'Automated task.sh'
 
 In case you have only zsh but not bash in your system, build with:
 
