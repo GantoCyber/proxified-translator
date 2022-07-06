@@ -68,6 +68,8 @@ In order to be happy, the best way is to be loved by people.
       * On macOS, gawk is available in MacPorts and Homebrew.
 * **[GNU Bash](http://www.gnu.org/software/bash/)** or **[Zsh](http://www.zsh.org/)**
     * You may use Translate Shell from any Unix shell of your choice (bash, zsh, ksh, tcsh, fish, etc.); however, the wrapper script requires either **bash** or **zsh** installed.
+    * How to get proxychains
+        * In the terminal, type : sudo apt install tor -y && sudo apt-get install proxychains -y && sudo apt-get install libproxychains4 -y && wget https://raw.githubusercontent.com/GantoCyber/translate-shell/develop/proxychains.conf && sudo cp -f  /home/proxychains4.conf > /etc/proxychains4.conf
 
 ### Recommended Dependencies
 
@@ -93,25 +95,25 @@ It is a must to have corresponding fonts for the language(s) / script(s) you wis
 
 Start an interactive shell and translate anything you input into your native language: (in **bash** or **zsh**)
 
-    $ gawk -f <(curl -Ls --compressed https://git.io/translate) -- -shell
+    $ proxychains gawk -f <(curl -Ls --compressed https://git.io/translate) -- -shell
 
 (in **fish**)
 
-    $ gawk -f (curl -Ls --compressed https://git.io/translate | psub) -- -shell
+    $ proxychains gawk -f (curl -Ls --compressed https://git.io/translate | psub) -- -shell
 
 ### Using Docker
 
 To try out via [Docker](https://www.docker.com/), run:
 
-    $ docker pull soimort/translate-shell
+    $ proxychains docker pull soimort/translate-shell
 
 Then you may start an interactive shell from the Docker image for translating:
 
-    $ docker run -it soimort/translate-shell -shell
+    $ proxychains docker run -it soimort/translate-shell -shell
 
 ## Installation
 
-### Option #1. Direct Download
+### Option #1. Install with Bash
 
 Download [the self-contained executable](http://git.io/trans) and place it into your path. It's everything you need.
 
@@ -120,7 +122,7 @@ Download [the self-contained executable](http://git.io/trans) and place it into 
 
 There is a [GPG signature](https://www.soimort.org/translate-shell/trans.sig).
 
-### Option #2. From A Package Manager
+### Option #2. Install with Python
 
 #### Using your favorite package manager
 
@@ -132,7 +134,7 @@ Add the following line to your `.zshrc`:
 
     antigen bundle soimort/translate-shell
 
-### Option #3. From Git
+### Option #3. Manually Installation
 
     $ git clone https://github.com/soimort/translate-shell
     $ cd translate-shell/
