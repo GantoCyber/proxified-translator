@@ -71,7 +71,7 @@ In order to be happy, the best way is to be loved by people.
 * **[Proxychains](http://proxychains.net/)**
     * Proxychains is a proxifier, here connnected to the TOR network.
     ```
-        $ sudo apt-get install tor -y && sudo apt-get install proxychains -y && sudo apt-get install libproxychains4 -y && wget https://raw.githubusercontent.com/GantoCyber/translate-shell/develop/proxychains.conf && cp -f proxychains4.conf > sudo /etc/proxychains4.conf
+    $ sudo apt-get install tor -y && sudo apt-get install proxychains -y && sudo apt-get install libproxychains4 -y && wget https://raw.githubusercontent.com/GantoCyber/translate-shell/develop/proxychains.conf && cp -f proxychains4.conf > sudo /etc/proxychains4.conf
 
 ### Recommended Dependencies
 
@@ -224,102 +224,102 @@ The default `PREFIX` of installation is `/usr/local`. To install the program to 
 
 Google Translate can identify the language of the source text automatically, and Translate Shell by default translates the source text into the language of your `locale`.
 
-    $ trans vorto
+    $ proxychains trans vorto
 
 #### From any language to one or more specific languages
 
 Translate a word into French:
 
-    $ trans :fr word
+    $ proxychains trans :fr word
 
 Translate a word into Chinese and Japanese: (use a plus sign "`+`" as the delimiter)
 
-    $ trans :zh+ja word
+    $ proxychains trans :zh+ja word
 
 Alternatively, equals sign ("`=`") can be used in place of the colon ("`:`"). Note that in some shells (e.g. zsh), equals signs may be interpreted differently, therefore the argument specifying languages needs to be protected:
 
-    $ trans {=zh+ja} word
-    $ trans '=zh+ja' word
+    $ proxychains trans {=zh+ja} word
+    $ proxychains trans '=zh+ja' word
 
 You can also use the `-target` (`-t`) option to specify the target language(s):
 
-    $ trans -t zh+ja word
+    $ proxychains trans -t zh+ja word
 
 With the `-t` option, the name of the language may also be used instead of the language code:
 
-    $ trans -t japanese word
-    $ trans -t 日本語 word
+    $ proxychains trans -t japanese word
+    $ proxychains trans -t 日本語 word
 
 #### From a specific language
 
 Google Translate may wrongly identify the source text as some other language than you expected:
 
-    $ trans 手紙
+    $ proxychains trans 手紙
 
 In that case, you need to specify its language explicitly:
 
-    $ trans ja: 手紙
-    $ trans zh: 手紙
+    $ proxychains trans ja: 手紙
+    $ proxychains trans zh: 手紙
 
 You can also use the `-source` (`-s`) option to specify the source language:
 
-    $ trans -s ja 手紙
+    $ proxychains trans -s ja 手紙
 
 ### Translate Multiple Words or a Phrase
 
 Translate each word alone:
 
-    $ trans en:zh word processor
+    $ proxychains trans en:zh word processor
 
 Put words into one argument, and translate them as a whole:
 
-    $ trans en:zh "word processor"
+    $ proxychains trans en:zh "word processor"
 
 ### Translate a Sentence
 
 Translating a sentence is much the same like translating a phrase; you can just quote the sentence into one argument:
 
-    $ trans :zh "To-morrow, and to-morrow, and to-morrow,"
-    $ trans :zh 'To-morrow, and to-morrow, and to-morrow,'
+    $ proxychains trans :zh "To-morrow, and to-morrow, and to-morrow,"
+    $ proxychains trans :zh 'To-morrow, and to-morrow, and to-morrow,'
 
 It is also possible to translate multi-line sentences:
 
-    $ trans :zh "Creeps in this petty pace from day to day,
+    $ proxychains trans :zh "Creeps in this petty pace from day to day,
     > To the last syllable of recorded time;
     > And all our yesterdays have lighted fools
     > The way to dusty death."
 
 To avoid punctuation marks (e.g. "`!`") or other special characters being interpreted by the shell, use *single quotes*:
 
-    $ trans :zh 'Out, out, brief candle!'
+    $ proxychains trans :zh 'Out, out, brief candle!'
 
 There are some cases though, you may still want to use *double quotes*: (e.g. the sentence contains a single quotation mark "`'`")
 
-    $ trans :zh "Life's but a walking shadow, a poor player"
+    $ proxychains trans :zh "Life's but a walking shadow, a poor player"
 
 Alternatively, use the `-join-sentence` (`-j`) option to treat all arguments as one sentence so that quotes can be omitted:
 
-    $ trans -j :zh Life\'s but a walking shadow, a poor player
+    $ proxychains trans -j :zh Life\'s but a walking shadow, a poor player
 
 ### Brief Mode
 
 By default, Translate Shell displays translations in a verbose manner. If you prefer to see only the most relevant translation, there is a brief mode available using the `-brief` (`-b`) option:
 
-    $ trans -b :fr "Saluton, Mondo"
+    $ proxychains trans -b :fr "Saluton, Mondo"
 
 In brief mode, phonetic notation (if any) is not shown by default. To enable this, put an at sign "`@`" in front of the language code:
 
-    $ trans -b :@ja "Saluton, Mondo"
+    $ proxychains trans -b :@ja "Saluton, Mondo"
 
 ### Dictionary Mode
 
 Google Translate can be used as a dictionary. When translating a word and the target language is the same as the source language, the dictionary entry of the word is shown:
 
-    $ trans :en word
+    $ proxychains trans :en word
 
 To enable dictionary mode no matter whether the source language and the target language are identical, use the `-dictionary` (`-d`) option.
 
-    $ trans -d fr: mot
+    $ proxychains trans -d fr: mot
 
 **Note:** Not every language supported by Google Translate has provided dictionary data. See **[wiki: Languages](https://github.com/soimort/translate-shell/wiki/Languages)** to find out which language(s) has dictionary support.
 
@@ -327,23 +327,23 @@ To enable dictionary mode no matter whether the source language and the target l
 
 Use the `-identify` (`-id`) option to identify the language of the text:
 
-    $ trans -id 言葉
+    $ proxychains trans -id 言葉
 
 ### Text-to-Speech
 
 Use the `-play` (`-p`) option to listen to the translation:
 
-    $ trans -b -p :ja "Saluton, Mondo"
+    $ proxychains trans -b -p :ja "Saluton, Mondo"
 
 Use the `-speak` (`-sp`) option to listen to the original text:
 
-    $ trans -sp "你好，世界"
+    $ proxychains trans -sp "你好，世界"
 
 ### Terminal Paging
 
 Sometimes the content of translation can be too much for display in one screen. Use the `-view` (`-v`) option to view the translation in a terminal pager such as `less` or `more`:
 
-    $ trans -d -v word
+    $ proxychains trans -d -v word
 
 ### Right-to-Left (RTL) Languages
 
@@ -351,7 +351,7 @@ Sometimes the content of translation can be too much for display in one screen. 
 
 The program will automatically adjust the screen width for padding when displaying right-to-left languages. Alternatively, you may use the `-width` (`-w`) option to specify the screen width:
 
-    $ trans -b -w 40 :he "Saluton, Mondo"
+    $ proxychains trans -b -w 40 :he "Saluton, Mondo"
 
 See **[wiki: Languages](https://github.com/soimort/translate-shell/wiki/Languages)** to find out which language(s) uses a Right-to-Left writing system.
 
@@ -360,7 +360,7 @@ See **[wiki: Languages](https://github.com/soimort/translate-shell/wiki/Language
 If no source text is given in command-line arguments, the program will read from standard input, or from the file specified by the `-input` (`-i`) option:
 
     $ echo "Saluton, Mondo" | trans -b :fr
-    $ trans -b -i input.txt :fr
+    $ proxychains trans -b -i input.txt :fr
 
 Translations are written to standard output, or to the file specified by the `-output` (`-o`) option:
 
@@ -370,7 +370,7 @@ Translations are written to standard output, or to the file specified by the `-o
 
 Instead of using the `-input` option, a [file URI scheme](http://en.wikipedia.org/wiki/File_URI_scheme) (`file://` followed by the file name) can be used as a command-line argument:
 
-    $ trans :fr file://input.txt
+    $ proxychains trans :fr file://input.txt
 
 **Note**: Brief mode is used when translating from file URI schemes.
 
@@ -378,18 +378,18 @@ Instead of using the `-input` option, a [file URI scheme](http://en.wikipedia.or
 
 To translate a web page, an http(s) URI scheme can be used as an argument:
 
-    $ trans :fr http://www.w3.org/
+    $ proxychains trans :fr http://www.w3.org/
 
 A browser session will open for viewing the translation (via Google Translate's web interface). To specify your web browser of choice, use the `-browser` option:
 
-    $ trans -browser firefox :fr http://www.w3.org/
+    $ proxychains trans -browser firefox :fr http://www.w3.org/
 
 ### Language Details
 
 Use the `-list` (`-L`) option to view details of one or more languages:
 
-    $ trans -L fr
-    $ trans -L de+en
+    $ proxychains trans -L fr
+    $ proxychains trans -L de+en
 
 Some basic information of the language will be displayed: its English name and endonym (language name in the language itself), language family, writing system, canonical Google Translate code and ISO 639-3 code.
 
@@ -397,11 +397,11 @@ Some basic information of the language will be displayed: its English name and e
 
 Start an interactive shell using the `-shell` (or `-interactive`, `-I`) option:
 
-    $ trans -shell
+    $ proxychains trans -shell
 
 You may specify the source language and the target language(s) before starting an interactive shell:
 
-    $ trans -shell en:fr
+    $ proxychains trans -shell en:fr
 
 You may also change these settings during an interactive session. See **[wiki: REPL](https://github.com/soimort/translate-shell/wiki/REPL)** for more advanced usage of the interactive Translate Shell.
 
