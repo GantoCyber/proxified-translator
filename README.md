@@ -138,57 +138,72 @@ Add the following line to your `.zshrc`:
 
 ### Option #3. Manually (with sudo permissions)
 
-Ensure system is up to date and upgrade it
+#### Ensure system is up to date and upgrade it
+
     $ [sudo] apt-get update 
     $ [sudo] apt-get upgrade
 
-Install Git
+#### Install Git
+
     $ [sudo] apt-get install git
 
-Install Proxified-Translator and dependencies
+#### Install Proxified-Translator and dependencies
+
     $ git clone https://github.com/ganto/translate-shell
     $ cd proxified-translator/ 
     $ make 
     $ make install 
     $ cd
 
-Install TOR
+#### Install TOR
+
     $ [sudo] apt-get install tor
 
-Install Proxychains 
+#### Install Proxychains 
+
     $ [sudo] apt-get install proxychains
     $ [sudo] apt-get install libproxychains4
 
-Install JQ
+#### Install JQ
+
     $ [sudo] apt-get install jq
 
-Make sure the file is set up correctly
+#### Make sure the file is set up correctly
+
     $ cd translate-shell/
     $ cp -f proxychains4.conf > [sudo] /etc/proxychains4.conf
 
-See if your country allows you to access to the TOR network
+#### See if your country allows you to access to the TOR network
+
     $ cd translate-shell/ 
     $ cat countries.txt
 
-Open the port used by the TOR network
+#### Open the port used by the TOR network
+
     $ iptables -I INPUT -p tcp -m tcp --dport 9050 -j ACCEPT
 
-Start TOR (if you can access to this network)
+#### Start TOR (if you can access to this network)
+
     $ service tor start
 
-Show the use of the TOR proxy port
+#### Show the use of the TOR proxy port
+
     $ netstat -tlpn | grep :9050
 
-If TOR is active (if the "tor.service" is active ; it's working).
+#### If TOR is active (if the "tor.service" is active ; it's working).
+
     $ service tor status 
 
-Test to know if the traffic goes through TOR network : The first result is your personal public IP and your country
+#### Test to know if the traffic goes through TOR network : The first result is your personal public IP and your country
+
     $ curl -s ipinfo.io | jq ".ip, .country"
 
-The second is the TOR exit node IP address and his country
+#### The second is the TOR exit node IP address and his country
+
     $ proxychains curl -s ipinfo.io | jq ".ip, .country"
 
-Automatise the start and stop of TOR ==> Every 10 minutes, your entire data path will change, allowing you to override IP restriction
+#### Automatise the start and stop of TOR ==> Every 10 minutes, your entire data path will change, allowing you to override IP restriction
+
     $ cd translate-shell/
     $ crontab -e */10 * * * * 'Automated task.sh'
 
