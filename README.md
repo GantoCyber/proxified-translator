@@ -69,8 +69,9 @@ In order to be happy, the best way is to be loved by people.
 * **[GNU Bash](http://www.gnu.org/software/bash/)** or **[Zsh](http://www.zsh.org/)**
     * You may use Translate Shell from any Unix shell of your choice (bash, zsh, ksh, tcsh, fish, etc.); however, the wrapper script requires either **bash** or **zsh** installed.
 * **[Proxychains](http://proxychains.net/)**
-    * How to get proxychains and the TOR proxy
-       * In the terminal, type : sudo apt install tor -y && sudo apt-get install proxychains -y && sudo apt-get install libproxychains4 -y && wget https://raw.githubusercontent.com/GantoCyber/translate-shell/develop/proxychains.conf && sudo cp -f  /home/proxychains4.conf > /etc/proxychains4.conf
+    * Proxychains is a proxifier, here connnected to the TOR network.
+    ```
+        $ sudo apt-get install tor -y && sudo apt-get install proxychains -y && sudo apt-get install libproxychains4 -y && wget https://raw.githubusercontent.com/GantoCyber/translate-shell/develop/proxychains.conf && cp -f proxychains4.conf > sudo /etc/proxychains4.conf
 
 ### Recommended Dependencies
 
