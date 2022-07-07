@@ -177,7 +177,7 @@ Add the following line to your `.zshrc`:
 #### See if your country allows you to access to the TOR network
 
     $ cd translate-shell/ 
-    $ cat countries.txt
+    $ nano countries.txt
 
 #### Open the port used by the TOR network
 
