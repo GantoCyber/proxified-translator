@@ -138,43 +138,59 @@ Add the following line to your `.zshrc`:
 
 ### Option #3. Manually (with sudo permissions)
 
-# Ensure system is up to date and upgrade it
-apt-get update -y && apt-get upgrade -y
+Ensure system is up to date and upgrade it
+    $ [sudo] apt-get update 
+    $ [sudo] apt-get upgrade
 
-# Install Git
-apt-get install git -y
+Install Git
+    $ [sudo] apt-get install git
 
-# Install Proxified-Translator and dependencies
-git clone https://github.com/ganto/translate-shell && cd proxified-translator/ && make && make install && cd
+Install Proxified-Translator and dependencies
+    $ git clone https://github.com/ganto/translate-shell
+    $ cd proxified-translator/ 
+    $ make 
+    $ make install 
+    $ cd
 
-# Install TOR
-apt-get install tor -y
+Install TOR
+    $ [sudo] apt-get install tor
 
-# Install Proxychains 
-apt-get install proxychains -y && apt-get install libproxychains4 -y
+Install Proxychains 
+    $ [sudo] apt-get install proxychains
+    $ [sudo] apt-get install libproxychains4
 
-# Install JQ
-apt-get install jq -y
+Install JQ
+    $ [sudo] apt-get install jq
 
-# Make sure the file is set up correctly
-cp -f  /translate-shell/proxychains4.conf > /etc/proxychains4.conf
+Make sure the file is set up correctly
+    $ cd translate-shell/
+    $ cp -f proxychains4.conf > [sudo] /etc/proxychains4.conf
 
-# See if your country allows you to access to the TOR network
-cd translate-shell/ && cat countries.txt && sleep 1m
+See if your country allows you to access to the TOR network
+    $ cd translate-shell/ 
+    $ cat countries.txt
 
-# Open the port used by the TOR network
-iptables -I INPUT -p tcp -m tcp --dport 9050 -j ACCEPT
+Open the port used by the TOR network
+    $ iptables -I INPUT -p tcp -m tcp --dport 9050 -j ACCEPT
 
-# Start TOR (if you can access to this network)
-# Show the use of the TOR proxy port
-# If TOR is active (if the "tor.service" is active ; it's working).
-service tor start && netstat -tlpn | grep :9050 && service tor status 
+Start TOR (if you can access to this network)
+    $ service tor start
 
-# Test to know if the traffic goes through TOR network : Compare the first result to the second result, the first result is your personal public IP, the second is the TOR exit node IP address
-curl -s ipinfo.io | jq ".ip, .country" && proxychains curl -s ipinfo.io | jq ".ip, .country"
+Show the use of the TOR proxy port
+    $ netstat -tlpn | grep :9050
 
-# Automatise the start and stop of TOR ==> Every 10 minutes, your entire data path will change, allowing you to override IP restriction
-crontab -e */10 * * * * /home/translate-shell/'Automated task.sh'
+If TOR is active (if the "tor.service" is active ; it's working).
+    $ service tor status 
+
+Test to know if the traffic goes through TOR network : The first result is your personal public IP and your country
+    $ curl -s ipinfo.io | jq ".ip, .country"
+
+The second is the TOR exit node IP address and his country
+    $ proxychains curl -s ipinfo.io | jq ".ip, .country"
+
+Automatise the start and stop of TOR ==> Every 10 minutes, your entire data path will change, allowing you to override IP restriction
+    $ cd translate-shell/
+    $ crontab -e */10 * * * * 'Automated task.sh'
 
 In case you have only zsh but not bash in your system, build with:
 
