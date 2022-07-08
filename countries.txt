@@ -1,0 +1,175 @@
+﻿Albania,Y
+Andorra,Y
+Austria,Y
+Azerbaijan,N
+Belarus,N
+Belgium,Y
+Bosnia And Herzegovina,Y
+Bulgaria,Y
+Croatia,Y
+Cyprus,Y
+Czech Republic,Y
+Denmark,Y
+Estonia,Y
+Finland,Y
+France,Y
+Germany,Y
+Georgia,Y
+Greece,Y
+Hungary,Y
+Iceland,Y
+Ireland,Y
+Italy,Y
+Kosovo,Y
+Latvia,Y
+Liechtenstein,Y
+Lithuania,Y
+Luxembourg,Y
+Malta,Y
+Moldova,Y
+Montenegro,Y
+Netherlands,Y
+Norway,Y
+Poland,Y
+Portugal,Y
+North Macedonia,Y
+Romania,Y
+Russian Federation,N
+Serbia,Y
+Slovak Republic,Y
+Slovenia,Y
+Spain,Y
+Sweden,Y
+Switzerland,Y
+Turkey,N
+Ukraine,N
+United Kingdom,Y
+Canada,Y
+Cuba,N
+Mexico,N
+United States Of America,Y
+Argentina,Y
+Belize,Y
+Bolivia,Y
+Brazil,Y
+Chile,Y
+Colombia,Y
+Costa Rica,Y
+Ecuador,Y
+El Salvador,Y
+Guatemala,Y
+Guyana,Y
+Honduras,Y
+Nicaragua,Y
+Panama,Y
+Paraguay,Y
+Peru,Y
+Suriname,Y
+Trinidad And Tobago,Y
+Uruguay,Y
+R. B. De Venezuela,N
+Afghanistan,N
+Armenia,Y
+Bahrain,N
+Bangladesh,N
+Bhutan,Y
+Brunei Darussalam,N
+Cambodia,N
+China,N
+Hong Kong,Y
+India,N
+Indonesia,N
+Islamic Republic Of Iran,N
+Iraq,N
+Israel,Y
+Japan,Y
+Jordan,N
+Kazakhstan,N
+Kyrgyz Republic,Y
+Kuwait,N
+Lao People'S Democratic Republic,N
+Lebanon,N
+Malaysia,N
+Maldives,Y
+Mongolia,Y
+Myanmar,N
+Nepal,N
+D. P. R. Of Korea,N
+Oman,N
+Pakistan,N
+West Bank And Gaza,N
+Philippines,N
+Qatar,N
+Saudi Arabia,N
+Singapore,N
+Republic Of Korea,N
+Sri Lanka,Y
+Syrian Arab Republic,N
+Tajikistan,N
+Taiwan,Y
+Thailand,N
+Timor-Leste,Y
+Turkmenistan,N
+United Arab Emirates,N
+Uzbekistan,N
+Vietnam,N
+Republic Of Yemen,N
+Algeria,N
+Angola,Y
+Benin,Y
+Botswana,Y
+Burkina Faso,Y
+Burundi,N
+Cameroon,N
+Cape Verde,Y
+Central African Republic,Y
+Chad,N
+Comoros,Y
+Congo,Y
+Côte D'Ivoire,Y
+Democratic Republic Of Congo,N
+Djibouti,N
+Arab Republic Of Egypt,N
+Equatorial Guinea,N
+Eritrea,N
+Eswatini,N
+Ethiopia,N
+Gabon,Y
+The Gambia,Y
+Ghana,Y
+Guinea,Y
+Guinea-Bissau,Y
+Kenya,Y
+Lesotho,Y
+Liberia,Y
+Libya,N
+Madagascar,Y
+Malawi,Y
+Mali,Y
+Mauritania,Y
+Mauritius,Y
+Morocco,N
+Mozambique,Y
+Namibia,Y
+Niger,Y
+Nigeria,Y
+Rwanda,N
+Senegal,Y
+Seychelles,Y
+Sierra Leone,Y
+Somalia,N
+South Africa,Y
+South Sudan,Y
+Sudan,Y
+Tanzania,N
+Togo,Y
+Tunisia,Y
+Uganda,N
+Zambia,N
+Zimbabwe,N
+Australia,Y
+Fiji,Y
+New Zealand,Y
+Papua New Guinea,N
+Samoa,Y
+Tonga,Y
