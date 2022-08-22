@@ -68,7 +68,7 @@ In order to be happy, the best way is to be loved by people.
       * On macOS, gawk is available in MacPorts and Homebrew.
 * **[GNU Bash](http://www.gnu.org/software/bash/)** or **[Zsh](http://www.zsh.org/)**
     * You may use Translate Shell from any Unix shell of your choice (bash, zsh, ksh, tcsh, fish, etc.); however, the wrapper script requires either **bash** or **zsh** installed.
-    * **[TOR](http://torproject.org/)**
+* **[TOR](http://torproject.org/)**
   * Here TOR is used as an Proxy and not a browser.
     ```
     $ sudo apt-get install tor -y
